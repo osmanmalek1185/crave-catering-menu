@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crave The Caterers | Bespoke Menu Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --grey: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('your-background-image.jpg');
+            background-size: cover;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .logo {
+            max-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        form {
+            background: var(--grey);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            border-left: 3px solid var(--gold);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        input[type="text"], input[type="date"], input[type="number"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            background: #222;
+            padding: 10px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .checkbox-item:hover {
+            background: #333;
+        }
+
+        .checkbox-item input {
+            margin-right: 12px;
+            accent-color: var(--gold);
+        }
+
+        button {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            transition: 0.4s;
+        }
+
+        button:hover {
+            background: #e0b86d;
+            transform: translateY(-2px);
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://i.imgur.com/your-logo-here.png" alt="Crave Logo" class="logo">
+    <h1>Bespoke Menu Selection</h1>
+    <p class="subtitle">Pakistan's finest luxury destination wedding planning and premium catering. Select your preferred items to receive a custom proposal.</p>
+</header>
+
+<div class="container">
+    <form action="https://formspree.io/f/asma@sweetaffairs.com.pk" method="POST">
+        
+        <section>
+            <h2>Event Essentials</h2>
+            <div class="form-group">
+                <label>Client Name</label>
+                <input type="text" name="name" required placeholder="Full Name">
+            </div>
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="text" name="phone" required placeholder="e.g. +92 300 1234567">
+            </div>
+            <div class="form-group">
+                <label>Event Date</label>
+                <input type="date" name="event_date" required>
+            </div>
+            <div class="form-group">
+                <label>Estimated Number of Guests</label>
+                <input type="number" name="guest_count" required placeholder="Total Pax">
+            </div>
+        </section>
+
+        <section>
+            <h2>Welcome Drinks (Choose 1 or 2)</h2>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Mint Margarita"> Mint Margarita</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Fresh Strawberry Cooler"> Fresh Strawberry Cooler</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Pina Colada"> Pina Colada</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Classic Mojito"> Classic Mojito</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Seasonal Juice"> Seasonal Fresh Juice</label>
+            </div>
+        </section>
+
+        <section>
+            <h2>Gourmet Starters (Choose 1-4)</h2>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Tempura Prawns"> Tempura Prawns</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Honey Siracha Wings"> Honey Siracha Wings</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Chicken Tacos"> Chicken Tacos</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Mushroom Tartlets"> Mushroom Tartlets (Truffle Mayo)</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Cheese Parcels"> Crispy Chicken & Cheese Parcels</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Feta Spring Rolls"> Feta Spring Rolls (Honey Siracha)</label>
+            </div>
+        </section>
+
+        <section>
+            <h2>Heritage Kitchen / Desi Mains</h2>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Mutton Shinwari"> Mutton Shinwari Karahi</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Butter Chicken"> Butter Chicken</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Beef Nihari"> Beef Nihari</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Mutton Qorma"> Mutton Qorma</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Palak Paneer"> Palak Paneer</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Saag/Makki Roti"> Saag with Makki Ki Roti</label>
+            </div>
+        </section>
+
+        <section>
+            <h2>Rice Station</h2>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="radio" name="rice" value="Chilmil Biryani"> Chicken Chilmil Biryani</label>
+                <label class="checkbox-item"><input type="radio" name="rice" value="Crave Special Biryani"> Crave Special Biryani</label>
+                <label class="checkbox-item"><input type="radio" name="rice" value="Beef Yakhni Pulao"> Beef Yakhni Pulao</label>
+                <label class="checkbox-item"><input type="radio" name="rice" value="Beef Nalli Pulao"> Beef Nalli Yakhni Pulao</label>
+            </div>
+        </section>
+
+        <section>
+            <h2>Sweet Affairs Studio (Dessert)</h2>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Tiramisu Bar"> Tiramisu Bar</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Chocolate Trifle"> Chocolate Trifle</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Bread Pudding"> Bread Pudding (Caramel Sauce)</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Walnut Tart"> Walnut Tart Station & Gelato</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Gulab Jamun Pudding"> Hot Gulab Jamun on Pudding</label>
+            </div>
+        </section>
+
+        <section>
+            <label>Additional Requests / Custom Notes</label>
+            <textarea name="notes" rows="4" placeholder="Mention any specific international stations or dietary requirements..."></textarea>
+        </section>
+
+        <button type="submit">Request Bespoke Quote</button>
+        <p class="footer-note">A member of our events team will contact you within 24 hours.</p>
+    </form>
+</div>
+
+</body>
+</html>
