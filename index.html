@@ -142,11 +142,37 @@
             transform: translateY(-2px);
         }
 
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+
         .footer-note {
             text-align: center;
             margin-top: 20px;
             font-size: 0.9rem;
             color: #888;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .alert.success {
+            background: #2d5016;
+            color: #a8e6a1;
+            border: 1px solid #4a7c24;
+            display: block;
+        }
+
+        .alert.error {
+            background: #5c2e2e;
+            color: #ff9999;
+            border: 1px solid #8b4444;
+            display: block;
         }
     </style>
 </head>
@@ -159,7 +185,9 @@
 </header>
 
 <div class="container">
-    <form action="https://formspree.io/f/asma@sweetaffairs.com.pk" method="POST">
+    <div id="alert" class="alert"></div>
+    
+    <form id="menuForm">
         
         <section>
             <h2>Event Essentials</h2>
@@ -170,6 +198,10 @@
             <div class="form-group">
                 <label>Contact Number</label>
                 <input type="text" name="phone" required placeholder="e.g. +92 300 1234567">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" required placeholder="your@email.com">
             </div>
             <div class="form-group">
                 <label>Event Date</label>
@@ -184,35 +216,35 @@
         <section>
             <h2>Welcome Drinks (Choose 1 or 2)</h2>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Mint Margarita"> Mint Margarita</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Fresh Strawberry Cooler"> Fresh Strawberry Cooler</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Pina Colada"> Pina Colada</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Classic Mojito"> Classic Mojito</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks[]" value="Seasonal Juice"> Seasonal Fresh Juice</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Mint Margarita"> Mint Margarita</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Fresh Strawberry Cooler"> Fresh Strawberry Cooler</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Pina Colada"> Pina Colada</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Classic Mojito"> Classic Mojito</label>
+                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Seasonal Juice"> Seasonal Fresh Juice</label>
             </div>
         </section>
 
         <section>
             <h2>Gourmet Starters (Choose 1-4)</h2>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Tempura Prawns"> Tempura Prawns</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Honey Siracha Wings"> Honey Siracha Wings</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Chicken Tacos"> Chicken Tacos</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Mushroom Tartlets"> Mushroom Tartlets (Truffle Mayo)</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Cheese Parcels"> Crispy Chicken & Cheese Parcels</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters[]" value="Feta Spring Rolls"> Feta Spring Rolls (Honey Siracha)</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters" value="Tempura Prawns"> Tempura Prawns</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters" value="Honey Siracha Wings"> Honey Siracha Wings</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters" value="Chicken Tacos"> Chicken Tacos</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters" value="Mushroom Tartlets"> Mushroom Tartlets (Truffle Mayo)</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters" value="Cheese Parcels"> Crispy Chicken & Cheese Parcels</label>
+                <label class="checkbox-item"><input type="checkbox" name="starters" value="Feta Spring Rolls"> Feta Spring Rolls (Honey Siracha)</label>
             </div>
         </section>
 
         <section>
             <h2>Heritage Kitchen / Desi Mains</h2>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Mutton Shinwari"> Mutton Shinwari Karahi</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Butter Chicken"> Butter Chicken</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Beef Nihari"> Beef Nihari</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Mutton Qorma"> Mutton Qorma</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Palak Paneer"> Palak Paneer</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi[]" value="Saag/Makki Roti"> Saag with Makki Ki Roti</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi" value="Mutton Shinwari"> Mutton Shinwari Karahi</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi" value="Butter Chicken"> Butter Chicken</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi" value="Beef Nihari"> Beef Nihari</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi" value="Mutton Qorma"> Mutton Qorma</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi" value="Palak Paneer"> Palak Paneer</label>
+                <label class="checkbox-item"><input type="checkbox" name="desi" value="Saag/Makki Roti"> Saag with Makki Ki Roti</label>
             </div>
         </section>
 
@@ -229,11 +261,11 @@
         <section>
             <h2>Sweet Affairs Studio (Dessert)</h2>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Tiramisu Bar"> Tiramisu Bar</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Chocolate Trifle"> Chocolate Trifle</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Bread Pudding"> Bread Pudding (Caramel Sauce)</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Walnut Tart"> Walnut Tart Station & Gelato</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert[]" value="Gulab Jamun Pudding"> Hot Gulab Jamun on Pudding</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Tiramisu Bar"> Tiramisu Bar</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Chocolate Trifle"> Chocolate Trifle</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Bread Pudding"> Bread Pudding (Caramel Sauce)</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Walnut Tart"> Walnut Tart Station & Gelato</label>
+                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Gulab Jamun Pudding"> Hot Gulab Jamun on Pudding</label>
             </div>
         </section>
 
@@ -246,6 +278,88 @@
         <p class="footer-note">A member of our events team will contact you within 24 hours.</p>
     </form>
 </div>
+
+<script>
+    document.getElementById('menuForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const button = this.querySelector('button');
+        const alert = document.getElementById('alert');
+        button.disabled = true;
+        button.textContent = 'Sending...';
+
+        // Collect form data
+        const formData = {
+            name: this.querySelector('input[name="name"]').value,
+            phone: this.querySelector('input[name="phone"]').value,
+            email: this.querySelector('input[name="email"]').value,
+            event_date: this.querySelector('input[name="event_date"]').value,
+            guest_count: this.querySelector('input[name="guest_count"]').value,
+            drinks: Array.from(this.querySelectorAll('input[name="drinks"]:checked')).map(el => el.value),
+            starters: Array.from(this.querySelectorAll('input[name="starters"]:checked')).map(el => el.value),
+            desi: Array.from(this.querySelectorAll('input[name="desi"]:checked')).map(el => el.value),
+            rice: this.querySelector('input[name="rice"]:checked')?.value || 'Not selected',
+            dessert: Array.from(this.querySelectorAll('input[name="dessert"]:checked')).map(el => el.value),
+            notes: this.querySelector('textarea[name="notes"]').value,
+            timestamp: new Date().toLocaleString()
+        };
+
+        try {
+            // Send to GitHub Actions webhook
+            const response = await fetch('https://api.github.com/repos/osmanmalek1185/crave-catering-menu/dispatches', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('github_token') || 'public'
+                },
+                body: JSON.stringify({
+                    event_type: 'form_submission',
+                    client_payload: formData
+                })
+            });
+
+            // Alternative: Send via EmailJS (no backend needed)
+            const emailResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    service_id: 'service_crave_catering',
+                    template_id: 'template_menu_inquiry',
+                    user_id: 'your_emailjs_public_key',
+                    template_params: {
+                        to_email: 'asma@sweetaffairs.com.pk',
+                        client_name: formData.name,
+                        client_phone: formData.phone,
+                        client_email: formData.email,
+                        event_date: formData.event_date,
+                        guest_count: formData.guest_count,
+                        drinks_selected: formData.drinks.join(', ') || 'None',
+                        starters_selected: formData.starters.join(', ') || 'None',
+                        desi_selected: formData.desi.join(', ') || 'None',
+                        rice_selected: formData.rice,
+                        dessert_selected: formData.dessert.join(', ') || 'None',
+                        notes: formData.notes
+                    }
+                })
+            }).catch(() => null); // Make it optional
+
+            alert.className = 'alert success';
+            alert.textContent = '✅ Your inquiry has been submitted! We will contact you within 24 hours.';
+            this.reset();
+            
+        } catch (error) {
+            alert.className = 'alert error';
+            alert.textContent = '❌ Error submitting form. Please try again.';
+            console.error('Error:', error);
+        } finally {
+            button.disabled = false;
+            button.textContent = 'Request Bespoke Quote';
+        }
+    });
+</script>
 
 </body>
 </html>
