@@ -11,14 +11,19 @@
             --black: #0a0a0a;
             --white: #ffffff;
             --grey: #1a1a1a;
+            --dark-grey: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             background-color: var(--black);
             color: var(--white);
             font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
             line-height: 1.6;
         }
 
@@ -27,30 +32,31 @@
             padding: 60px 20px;
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('your-background-image.jpg');
             background-size: cover;
-            border-bottom: 1px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
         }
 
         .logo {
-            max-width: 250px;
+            max-width: 200px;
             margin-bottom: 20px;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin: 10px 0;
         }
 
         .subtitle {
             font-weight: 300;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
             color: #ccc;
+            font-size: 1.1rem;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
         }
@@ -63,22 +69,28 @@
         }
 
         section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             border-bottom: 1px solid #333;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
             color: var(--gold);
-            border-left: 3px solid var(--gold);
+            border-left: 4px solid var(--gold);
             padding-left: 15px;
             margin-bottom: 25px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         label {
@@ -86,47 +98,134 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--gold);
+            font-size: 0.95rem;
         }
 
-        input[type="text"], input[type="date"], input[type="number"], input[type="email"], textarea {
+        input[type="text"], 
+        input[type="date"], 
+        input[type="number"], 
+        input[type="email"], 
+        textarea {
             width: 100%;
             padding: 12px;
-            background: #2a2a2a;
+            background: var(--dark-grey);
             border: 1px solid #444;
             color: white;
             border-radius: 4px;
-            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 5px rgba(197, 160, 89, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         .checkbox-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
         }
 
         .checkbox-item {
             display: flex;
-            align-items: center;
-            background: #222;
-            padding: 10px;
+            align-items: flex-start;
+            background: var(--dark-grey);
+            padding: 12px;
             border-radius: 4px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            cursor: pointer;
         }
 
         .checkbox-item:hover {
             background: #333;
+            border-color: var(--gold);
         }
 
         .checkbox-item input {
             margin-right: 12px;
+            margin-top: 3px;
             accent-color: var(--gold);
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .checkbox-item label {
+            margin-bottom: 0;
+            color: var(--white);
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            background: var(--dark-grey);
+            padding: 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .radio-item:hover {
+            background: #333;
+            border-color: var(--gold);
+        }
+
+        .radio-item input {
+            margin-right: 12px;
+            accent-color: var(--gold);
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .radio-item label {
+            margin-bottom: 0;
+            color: var(--white);
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .instruction {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 8px;
+            font-style: italic;
         }
 
         button {
             background: var(--gold);
             color: var(--black);
             border: none;
-            padding: 20px 40px;
+            padding: 18px 40px;
             font-size: 1.1rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -134,23 +233,26 @@
             cursor: pointer;
             width: 100%;
             border-radius: 4px;
-            transition: 0.4s;
+            transition: all 0.4s ease;
+            margin-top: 30px;
         }
 
         button:hover {
             background: #e0b86d;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
         }
 
         button:disabled {
             background: #666;
             cursor: not-allowed;
+            transform: none;
         }
 
         .footer-note {
             text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
+            margin-top: 25px;
+            font-size: 0.95rem;
             color: #888;
         }
 
@@ -159,6 +261,18 @@
             margin-bottom: 20px;
             border-radius: 4px;
             display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .alert.success {
@@ -174,14 +288,19 @@
             border: 1px solid #8b4444;
             display: block;
         }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
     </style>
 </head>
 <body>
 
 <header>
     <img src="https://i.imgur.com/your-logo-here.png" alt="Crave Logo" class="logo">
-    <h1>Bespoke Menu Selection</h1>
-    <p class="subtitle">Pakistan's finest luxury destination wedding planning and premium catering. Select your preferred items to receive a custom proposal.</p>
+    <h1>Crave The Caterers</h1>
+    <p class="subtitle">Pakistan's finest luxury destination wedding planning and premium catering. Select your preferred menu items below to receive a bespoke quote.</p>
 </header>
 
 <div class="container">
@@ -189,89 +308,853 @@
     
     <form id="menuForm">
         
+        <!-- Event Essentials -->
         <section>
             <h2>Event Essentials</h2>
-            <div class="form-group">
-                <label>Client Name</label>
-                <input type="text" name="name" required placeholder="Full Name">
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Client Name *</label>
+                    <input type="text" name="name" required placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number *</label>
+                    <input type="text" name="phone" required placeholder="e.g. +92 300 1234567">
+                </div>
             </div>
-            <div class="form-group">
-                <label>Contact Number</label>
-                <input type="text" name="phone" required placeholder="e.g. +92 300 1234567">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Event Date *</label>
+                    <input type="date" name="event_date" required>
+                </div>
             </div>
+
             <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" name="email" required placeholder="your@email.com">
-            </div>
-            <div class="form-group">
-                <label>Event Date</label>
-                <input type="date" name="event_date" required>
-            </div>
-            <div class="form-group">
-                <label>Estimated Number of Guests</label>
-                <input type="number" name="guest_count" required placeholder="Total Pax">
+                <label>Estimated Number of Guests *</label>
+                <input type="number" name="guest_count" required placeholder="Total Pax" min="1">
             </div>
         </section>
 
+        <!-- Welcome Drinks -->
         <section>
             <h2>Welcome Drinks (Choose 1 or 2)</h2>
+            <p class="instruction">Select 1 or 2 welcome drink options</p>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Mint Margarita"> Mint Margarita</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Fresh Strawberry Cooler"> Fresh Strawberry Cooler</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Pina Colada"> Pina Colada</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Classic Mojito"> Classic Mojito</label>
-                <label class="checkbox-item"><input type="checkbox" name="drinks" value="Seasonal Juice"> Seasonal Fresh Juice</label>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="drink1" name="welcome_drinks" value="Mint Margarita">
+                    <label for="drink1">Mint Margarita</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="drink2" name="welcome_drinks" value="Fresh Strawberry Cooler">
+                    <label for="drink2">Fresh Strawberry Cooler</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="drink3" name="welcome_drinks" value="Pina Colada">
+                    <label for="drink3">Pina Colada</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="drink4" name="welcome_drinks" value="Classic Mojito">
+                    <label for="drink4">Classic Mojito</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="drink5" name="welcome_drinks" value="Seasonal Fresh Juice">
+                    <label for="drink5">Seasonal Fresh Juice</label>
+                </div>
             </div>
         </section>
 
+        <!-- Soup Station -->
+        <section>
+            <h2>Soup Station - Served with Crackers (Choose 1 or 2)</h2>
+            <p class="instruction">Select 1 or 2 soup options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="soup1" name="soup_station" value="Roasted Garlic Soup">
+                    <label for="soup1">Roasted Garlic Soup</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="soup2" name="soup_station" value="Hot & Sour Soup">
+                    <label for="soup2">Hot & Sour Soup</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="soup3" name="soup_station" value="Cream Of Chicken Soup">
+                    <label for="soup3">Cream Of Chicken Soup</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gourmet Starters -->
         <section>
             <h2>Gourmet Starters (Choose 1-4)</h2>
+            <p class="instruction">Select 1 to 4 gourmet starter options</p>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="starters" value="Tempura Prawns"> Tempura Prawns</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters" value="Honey Siracha Wings"> Honey Siracha Wings</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters" value="Chicken Tacos"> Chicken Tacos</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters" value="Mushroom Tartlets"> Mushroom Tartlets (Truffle Mayo)</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters" value="Cheese Parcels"> Crispy Chicken & Cheese Parcels</label>
-                <label class="checkbox-item"><input type="checkbox" name="starters" value="Feta Spring Rolls"> Feta Spring Rolls (Honey Siracha)</label>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter1" name="gourmet_starters" value="Tempura Prawns With Soya Sauce">
+                    <label for="starter1">Tempura Prawns With Soya Sauce</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter2" name="gourmet_starters" value="Honey Siracha Boneless Wings with Sweet Chilli Sauce">
+                    <label for="starter2">Honey Siracha Boneless Wings</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter3" name="gourmet_starters" value="Chicken Tacos With Seasonal Salsa">
+                    <label for="starter3">Chicken Tacos With Seasonal Salsa</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter4" name="gourmet_starters" value="Mushroom Tartlets With Truffle Mayo">
+                    <label for="starter4">Mushroom Tartlets With Truffle Mayo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter5" name="gourmet_starters" value="Crispy Chicken & Cheese Parcels with Lemon Mayo Dressing">
+                    <label for="starter5">Crispy Chicken & Cheese Parcels</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter6" name="gourmet_starters" value="Tempura Chicken Poppers With Mexican Salsa">
+                    <label for="starter6">Tempura Chicken Poppers</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter7" name="gourmet_starters" value="Mushroom Cheese & Spinach Puffs Parmesan Sprinkle">
+                    <label for="starter7">Mushroom Cheese & Spinach Puffs</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="starter8" name="gourmet_starters" value="Feta Spring Rolls With Honey Siracha Chilli Sauce">
+                    <label for="starter8">Feta Spring Rolls</label>
+                </div>
             </div>
         </section>
 
+        <!-- Street Food/Chaat Station -->
         <section>
-            <h2>Heritage Kitchen / Desi Mains</h2>
+            <h2>Street Food/Chaat Station (Choose 5)</h2>
+            <p class="instruction">Select exactly 5 chaat options</p>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="desi" value="Mutton Shinwari"> Mutton Shinwari Karahi</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi" value="Butter Chicken"> Butter Chicken</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi" value="Beef Nihari"> Beef Nihari</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi" value="Mutton Qorma"> Mutton Qorma</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi" value="Palak Paneer"> Palak Paneer</label>
-                <label class="checkbox-item"><input type="checkbox" name="desi" value="Saag/Makki Roti"> Saag with Makki Ki Roti</label>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat1" name="chaat_station" value="Papri Chaat">
+                    <label for="chaat1">Papri Chaat</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat2" name="chaat_station" value="Channa Chaat">
+                    <label for="chaat2">Channa Chaat</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat3" name="chaat_station" value="Dahi Bhallay">
+                    <label for="chaat3">Dahi Bhallay</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat4" name="chaat_station" value="Gol Gappay">
+                    <label for="chaat4">Gol Gappay</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat5" name="chaat_station" value="Kachori Chaat">
+                    <label for="chaat5">Kachori Chaat</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat6" name="chaat_station" value="Papri Spinach Chaat">
+                    <label for="chaat6">Papri Spinach Chaat</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat7" name="chaat_station" value="Gujrati Chaat">
+                    <label for="chaat7">Gujrati Chaat</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat8" name="chaat_station" value="Vada Pao">
+                    <label for="chaat8">Vada Pao</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat9" name="chaat_station" value="Samosa Chaat">
+                    <label for="chaat9">Samosa Chaat</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="chaat10" name="chaat_station" value="Laddu Pethi">
+                    <label for="chaat10">Laddu Pethi</label>
+                </div>
             </div>
         </section>
 
+        <!-- Signature Salad and Platter Bar -->
         <section>
-            <h2>Rice Station</h2>
+            <h2>Signature Salad and Platter Bar (Choose 4-5)</h2>
+            <p class="instruction">Select 4 to 5 salad and platter options</p>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="radio" name="rice" value="Chilmil Biryani"> Chicken Chilmil Biryani</label>
-                <label class="checkbox-item"><input type="radio" name="rice" value="Crave Special Biryani"> Crave Special Biryani</label>
-                <label class="checkbox-item"><input type="radio" name="rice" value="Beef Yakhni Pulao"> Beef Yakhni Pulao</label>
-                <label class="checkbox-item"><input type="radio" name="rice" value="Beef Nalli Pulao"> Beef Nalli Yakhni Pulao</label>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad1" name="salad_platter" value="Lebanese Fattoush">
+                    <label for="salad1">Lebanese Fattoush</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad2" name="salad_platter" value="Mediterranean Platter">
+                    <label for="salad2">Mediterranean Platter</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad3" name="salad_platter" value="Beetroot Hummus and Mutabal">
+                    <label for="salad3">Beetroot Hummus and Mutabal</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad4" name="salad_platter" value="Crispy Chicken Salad With Honey Mustard">
+                    <label for="salad4">Crispy Chicken Salad</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad5" name="salad_platter" value="Ceaser Salad">
+                    <label for="salad5">Caesar Salad</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad6" name="salad_platter" value="Quinoa Salad With Lemon Vinaigrette">
+                    <label for="salad6">Quinoa Salad With Lemon Vinaigrette</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad7" name="salad_platter" value="Kale and potato salad With Greek Yogurt Dressing & Dill">
+                    <label for="salad7">Kale and Potato Salad</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad8" name="salad_platter" value="Caprese Salad creamy pesto Sauce With Balsamic Vinegrette">
+                    <label for="salad8">Caprese Salad with Pesto</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad9" name="salad_platter" value="Crunchy Ramen Salad With Chilli Paste Tahini Vinegrette">
+                    <label for="salad9">Crunchy Ramen Salad</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="salad10" name="salad_platter" value="Protein Goddess Salad With Lemon Herb Vinegrette">
+                    <label for="salad10">Protein Goddess Salad</label>
+                </div>
             </div>
         </section>
 
+        <!-- Hyderabadi Station -->
         <section>
-            <h2>Sweet Affairs Studio (Dessert)</h2>
+            <h2>Hyderabadi Station (Choose 4)</h2>
+            <p class="instruction">Select 4 Hyderabadi options</p>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Tiramisu Bar"> Tiramisu Bar</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Chocolate Trifle"> Chocolate Trifle</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Bread Pudding"> Bread Pudding (Caramel Sauce)</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Walnut Tart"> Walnut Tart Station & Gelato</label>
-                <label class="checkbox-item"><input type="checkbox" name="dessert" value="Gulab Jamun Pudding"> Hot Gulab Jamun on Pudding</label>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi1" name="hyderabadi_station" value="Masala Dosa">
+                    <label for="hyderabadi1">Masala Dosa (Coconut Sauce With Pulpy Tomato Sauce)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi2" name="hyderabadi_station" value="Potatoe Dry Masala">
+                    <label for="hyderabadi2">Potato Dry Masala (Veg)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi3" name="hyderabadi_station" value="Coconut Fish Curry">
+                    <label for="hyderabadi3">Coconut Fish Curry</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi4" name="hyderabadi_station" value="Garlic curry with vegetables">
+                    <label for="hyderabadi4">Garlic Curry with Vegetables (Veg)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi5" name="hyderabadi_station" value="Khatti Daal">
+                    <label for="hyderabadi5">Khatti Daal</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi6" name="hyderabadi_station" value="Bhaigare Baingan">
+                    <label for="hyderabadi6">Bhaigare Baingan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi7" name="hyderabadi_station" value="Mirchi Ka Salan">
+                    <label for="hyderabadi7">Mirchi Ka Salan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi8" name="hyderabadi_station" value="Khattay Aloo">
+                    <label for="hyderabadi8">Khattay Aloo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hyderabadi9" name="hyderabadi_station" value="Steam Zeera Rice">
+                    <label for="hyderabadi9">Steam Zeera Rice</label>
+                </div>
             </div>
         </section>
 
+        <!-- Japanese Station -->
         <section>
-            <label>Additional Requests / Custom Notes</label>
-            <textarea name="notes" rows="4" placeholder="Mention any specific international stations or dietary requirements..."></textarea>
+            <h2>Japanese Station (Choose 4)</h2>
+            <p class="instruction">Select 4 Japanese options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese1" name="japanese_station" value="Crunchy Maki">
+                    <label for="japanese1">Crunchy Maki</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese2" name="japanese_station" value="Tempura Maki">
+                    <label for="japanese2">Tempura Maki</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese3" name="japanese_station" value="California Maki">
+                    <label for="japanese3">California Maki</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese4" name="japanese_station" value="Chicken Panko Maki">
+                    <label for="japanese4">Chicken Panko Maki</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese5" name="japanese_station" value="Yasai Roll">
+                    <label for="japanese5">Yasai Roll</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese6" name="japanese_station" value="Chicken typpenyaki with sauted vegetables">
+                    <label for="japanese6">Chicken Teppanyaki with Vegetables</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese7" name="japanese_station" value="Beef Typpenyaki with sauted vegetables">
+                    <label for="japanese7">Beef Teppanyaki with Vegetables</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese8" name="japanese_station" value="Sole Typpenyaki with sauted vegetables">
+                    <label for="japanese8">Sole Teppanyaki with Vegetables</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="japanese9" name="japanese_station" value="Garlic Rice">
+                    <label for="japanese9">Garlic Rice</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lebanese Station -->
+        <section>
+            <h2>Lebanese Station (Choose 4)</h2>
+            <p class="instruction">Select 4 Lebanese options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lebanese1" name="lebanese_station" value="Beef Adana kebab with Lavash Bread & ezme sauce">
+                    <label for="lebanese1">Beef Adana Kebab</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lebanese2" name="lebanese_station" value="Beef Doner kebab">
+                    <label for="lebanese2">Beef Doner Kebab</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lebanese3" name="lebanese_station" value="Chicken Baitun Jaan">
+                    <label for="lebanese3">Chicken Baitun Jaan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lebanese4" name="lebanese_station" value="Chicken Nau Ratan">
+                    <label for="lebanese4">Chicken Nau Ratan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="lebanese5" name="lebanese_station" value="Chicken Doner Kebab">
+                    <label for="lebanese5">Chicken Doner Kebab</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seafood Station -->
+        <section>
+            <h2>Seafood Station (Choose 1-4)</h2>
+            <p class="instruction">Select 1 to 4 seafood options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="seafood1" name="seafood_station" value="Tempura Prawns With Soya Sauce">
+                    <label for="seafood1">Tempura Prawns With Soya Sauce</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="seafood2" name="seafood_station" value="Chilli Garlic Prawns Homemade Chilli Honey Siracha Sauce">
+                    <label for="seafood2">Chilli Garlic Prawns</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="seafood3" name="seafood_station" value="Fried Calamari With Spicy Turmeric Mayo">
+                    <label for="seafood3">Fried Calamari With Turmeric Mayo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="seafood4" name="seafood_station" value="Spanish Prawns With Chilli Butter Lemon Sauce">
+                    <label for="seafood4">Spanish Prawns With Chilli Butter</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heritage Kitchen / Desi Mains -->
+        <section>
+            <h2>Heritage Kitchen / Desi Mains (Choose 1-4)</h2>
+            <p class="instruction">Select 1 to 4 desi main options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi1" name="desi_mains" value="Mutton Shinwari Karahi">
+                    <label for="desi1">Mutton Shinwari Karahi</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi2" name="desi_mains" value="Mutton Kunna">
+                    <label for="desi2">Mutton Kunna</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi3" name="desi_mains" value="Butter Chicken">
+                    <label for="desi3">Butter Chicken</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi4" name="desi_mains" value="Beef Nihari">
+                    <label for="desi4">Beef Nihari</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi5" name="desi_mains" value="Chicken Achari Handi">
+                    <label for="desi5">Chicken Achari Handi</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi6" name="desi_mains" value="Saag With Maki Ki Roti">
+                    <label for="desi6">Saag With Makki Ki Roti</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi7" name="desi_mains" value="Chicken Jalfrezi">
+                    <label for="desi7">Chicken Jalfrezi</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi8" name="desi_mains" value="Palak Chicken">
+                    <label for="desi8">Palak Chicken</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi9" name="desi_mains" value="Palak Paneer">
+                    <label for="desi9">Palak Paneer</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi10" name="desi_mains" value="Chicken rajisthani">
+                    <label for="desi10">Chicken Rajasthani (White Curry)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi11" name="desi_mains" value="Mutton qorma">
+                    <label for="desi11">Mutton Korma</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi12" name="desi_mains" value="Puri Pathorau">
+                    <label for="desi12">Puri Pattharaul</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi13" name="desi_mains" value="Aloo ki Bhajji">
+                    <label for="desi13">Aloo Ki Bhajji</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="desi14" name="desi_mains" value="Crave special Channay">
+                    <label for="desi14">Crave Special Chana (with pickle and salad)</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rice Station -->
+        <section>
+            <h2>Rice Station (Choose 1)</h2>
+            <p class="instruction">Select 1 rice option</p>
+            <div class="radio-grid">
+                <div class="radio-item">
+                    <input type="radio" id="rice1" name="rice_station" value="Chicken Chilmil Biryani">
+                    <label for="rice1">Chicken Chilmil Biryani</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="rice2" name="rice_station" value="Crave Special Biryani">
+                    <label for="rice2">Crave Special Biryani</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="rice3" name="rice_station" value="Beef Yakhni Pulao">
+                    <label for="rice3">Beef Yakhni Pulao</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="rice4" name="rice_station" value="Beef Nalli Yakhni Pulao">
+                    <label for="rice4">Beef Nalli Yakhni Pulao</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halwa Section -->
+        <section>
+            <h2>Halwa Section (Choose 1)</h2>
+            <p class="instruction">Select 1 halwa option</p>
+            <div class="radio-grid">
+                <div class="radio-item">
+                    <input type="radio" id="halwa1" name="halwa_section" value="Paithay Ka Halwa">
+                    <label for="halwa1">Paithay Ka Halwa</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="halwa2" name="halwa_section" value="Daal ka Halwa">
+                    <label for="halwa2">Daal Ka Halwa</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="halwa3" name="halwa_section" value="Gajjar ka Halwa">
+                    <label for="halwa3">Gajjar Ka Halwa</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="halwa4" name="halwa_section" value="Suji ka Halwa">
+                    <label for="halwa4">Suji Ka Halwa</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desi Desserts -->
+        <section>
+            <h2>Desi Desserts (Choose 1-2)</h2>
+            <p class="instruction">Select 1 to 2 desi dessert options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dessert1" name="desi_desserts" value="Ras Malai">
+                    <label for="dessert1">Ras Malai</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dessert2" name="desi_desserts" value="Hot Ghulab jama">
+                    <label for="dessert2">Hot Gulab Jamun</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dessert3" name="desi_desserts" value="Kulfila with Laccha">
+                    <label for="dessert3">Kulfi with Laccha</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dessert4" name="desi_desserts" value="Jalebi">
+                    <label for="dessert4">Jalebi</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dessert5" name="desi_desserts" value="Shahi tukray">
+                    <label for="dessert5">Shahi Tukray</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dessert6" name="desi_desserts" value="Clay pot Kheer">
+                    <label for="dessert6">Clay Pot Kheer</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="dessert7" name="desi_desserts" value="Muttanjan">
+                    <label for="dessert7">Muttanjan</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Tawa -->
+        <section>
+            <h2>Live Tawa (Choose 1-2)</h2>
+            <p class="instruction">Select 1 to 2 live tawa options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tawa1" name="live_tawa" value="Spicy Chatkhara Chicken With Romali Roti">
+                    <label for="tawa1">Spicy Chatkhara Chicken With Romali Roti</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tawa2" name="live_tawa" value="Mutton Dum Qeema With Lacha Paratha">
+                    <label for="tawa2">Mutton Dum Qeema With Lacha Paratha</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tawa3" name="live_tawa" value="Taka Tak">
+                    <label for="tawa3">Taka Tak (Mutton Chops, Qeema, Brain Masala)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tawa4" name="live_tawa" value="Tawa Masala Champ">
+                    <label for="tawa4">Tawa Masala Champ</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grill & B.B.Q Live -->
+        <section>
+            <h2>Grill & BBQ Live (Choose 1-3)</h2>
+            <p class="instruction">Select 1 to 3 grill & BBQ options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bbq1" name="grill_bbq" value="Chicken Tikka Boti">
+                    <label for="bbq1">Chicken Tikka Boti</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bbq2" name="grill_bbq" value="Chicken Malai Boti">
+                    <label for="bbq2">Chicken Malai Boti</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bbq3" name="grill_bbq" value="Mutton Chops">
+                    <label for="bbq3">Mutton Chops</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bbq4" name="grill_bbq" value="Haryali Boti">
+                    <label for="bbq4">Haryali Boti (Chicken)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bbq5" name="grill_bbq" value="Pasha Boti">
+                    <label for="bbq5">Pasha Boti</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pan Asian -->
+        <section>
+            <h2>Pan Asian (Choose 1-4)</h2>
+            <p class="instruction">Select 1 to 4 pan Asian options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian1" name="pan_asian" value="Thai Coconut Curry">
+                    <label for="panasian1">Thai Coconut Curry</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian2" name="pan_asian" value="Sweet & Sour Chicken">
+                    <label for="panasian2">Sweet & Sour Chicken</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian3" name="pan_asian" value="Fiesty Beef">
+                    <label for="panasian3">Fiesty Beef</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian4" name="pan_asian" value="Kung Pao Fish">
+                    <label for="panasian4">Kung Pao Fish</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian5" name="pan_asian" value="Moroccan Chicken">
+                    <label for="panasian5">Moroccan Chicken</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian6" name="pan_asian" value="Egg fried Rice">
+                    <label for="panasian6">Egg Fried Rice</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian7" name="pan_asian" value="Lemon Chicken">
+                    <label for="panasian7">Lemon Chicken</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian8" name="pan_asian" value="Red curry">
+                    <label for="panasian8">Red Curry</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian9" name="pan_asian" value="Asian wok noodles">
+                    <label for="panasian9">Asian Wok Noodles</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="panasian10" name="pan_asian" value="Thai cashew nut">
+                    <label for="panasian10">Thai Cashew Nut</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Indonesian/Sri Lankan Station -->
+        <section>
+            <h2>Indonesian/Sri Lankan Station (Choose 1-4)</h2>
+            <p class="instruction">Select 1 to 4 Indonesian/Sri Lankan options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="indosri1" name="indosri_station" value="Chicken Gyoza">
+                    <label for="indosri1">Chicken Gyoza</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="indosri2" name="indosri_station" value="Chicken Satay">
+                    <label for="indosri2">Chicken Satay</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="indosri3" name="indosri_station" value="Sri Lankan Beef Curry">
+                    <label for="indosri3">Sri Lankan Beef Curry</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="indosri4" name="indosri_station" value="Sambal Station">
+                    <label for="indosri4">Sambal Station</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="indosri5" name="indosri_station" value="Nasi Goreng">
+                    <label for="indosri5">Nasi Goreng (Rice)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="indosri6" name="indosri_station" value="Pad Thai Noodles">
+                    <label for="indosri6">Pad Thai Noodles</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Italian Affairs -->
+        <section>
+            <h2>Italian Affairs (Choose 4)</h2>
+            <p class="instruction">Select 4 Italian options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="italian1" name="italian_affairs" value="Fettuccine Pasta Alfredo">
+                    <label for="italian1">Fettuccine Pasta Alfredo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="italian2" name="italian_affairs" value="Penne Carbonara">
+                    <label for="italian2">Penne Carbonara</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="italian3" name="italian_affairs" value="Aglio-e-Olio Spaghetti">
+                    <label for="italian3">Aglio-e-Olio Spaghetti</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="italian4" name="italian_affairs" value="Mushroom Risotto">
+                    <label for="italian4">Mushroom Risotto</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="italian5" name="italian_affairs" value="Rigatoni Marinara">
+                    <label for="italian5">Rigatoni Marinara</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="italian6" name="italian_affairs" value="Linguini in Creamy Pesto">
+                    <label for="italian6">Linguini in Creamy Pesto</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wood Fired Pizza -->
+        <section>
+            <h2>Wood Fired Pizza (Choose 1-4)</h2>
+            <p class="instruction">Select 1 to 4 pizza options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="pizza1" name="wood_pizza" value="Super Brick Oven">
+                    <label for="pizza1">Super Brick Oven</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="pizza2" name="wood_pizza" value="4 Cheese Pizza">
+                    <label for="pizza2">4 Cheese Pizza</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="pizza3" name="wood_pizza" value="Rocky Special">
+                    <label for="pizza3">Rocky Special</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="pizza4" name="wood_pizza" value="Pepperoni Pizza">
+                    <label for="pizza4">Pepperoni Pizza</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steak & Carving Station -->
+        <section>
+            <h2>Steak & Carving Station (Choose 1-2)</h2>
+            <p class="instruction">Select 1 to 2 steak & carving options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="steak1" name="steak_carving" value="Tenderloin Beef Steak">
+                    <label for="steak1">Tenderloin Beef Steak</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="steak2" name="steak_carving" value="Beef Shank">
+                    <label for="steak2">Beef Shank</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="steak3" name="steak_carving" value="Imported Tenderloin">
+                    <label for="steak3">Imported Tenderloin</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="steak4" name="steak_carving" value="Mutton Mandi With Aromatic Saffron Rice">
+                    <label for="steak4">Mutton Mandi With Saffron Rice</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Tandoor -->
+        <section>
+            <h2>Live Tandoor (Choose 2-3)</h2>
+            <p class="instruction">Select 2 to 3 tandoor options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor1" name="live_tandoor" value="Plain Naan">
+                    <label for="tandoor1">Plain Naan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor2" name="live_tandoor" value="Garlic Naan">
+                    <label for="tandoor2">Garlic Naan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor3" name="live_tandoor" value="Roghni Naan">
+                    <label for="tandoor3">Roghni Naan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor4" name="live_tandoor" value="Special Qeema Naan">
+                    <label for="tandoor4">Special Qeema Naan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor5" name="live_tandoor" value="Kalwanji Naan">
+                    <label for="tandoor5">Kalwanji Naan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor6" name="live_tandoor" value="Tandoori Roti">
+                    <label for="tandoor6">Tandoori Roti</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor7" name="live_tandoor" value="Khameeri roti">
+                    <label for="tandoor7">Khameeri Roti</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tandoor8" name="live_tandoor" value="Taftan">
+                    <label for="tandoor8">Taftan (Meethi Roti)</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sweet Affairs Studio -->
+        <section>
+            <h2>Sweet Affairs Studio - Desserts (Choose 2-3)</h2>
+            <p class="instruction">Select 2 to 3 dessert options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet1" name="sweet_affairs" value="Tiramisu Bar">
+                    <label for="sweet1">Tiramisu Bar</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet2" name="sweet_affairs" value="Chocolate Trifle">
+                    <label for="sweet2">Chocolate Trifle</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet3" name="sweet_affairs" value="Biscotti Trifle">
+                    <label for="sweet3">Biscotti Trifle</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet4" name="sweet_affairs" value="Brownie With Ice Cream">
+                    <label for="sweet4">Brownie With Ice Cream</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet5" name="sweet_affairs" value="Fruit Tart">
+                    <label for="sweet5">Fruit Tart</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet6" name="sweet_affairs" value="Lemon Tart">
+                    <label for="sweet6">Lemon Tart</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet7" name="sweet_affairs" value="Chocolate Parfait">
+                    <label for="sweet7">Chocolate Parfait</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet8" name="sweet_affairs" value="Bread Pudding with Caramel Sauce">
+                    <label for="sweet8">Bread Pudding with Caramel Sauce</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet9" name="sweet_affairs" value="Walnut tart station with gelato">
+                    <label for="sweet9">Walnut Tart Station with Gelato</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="sweet10" name="sweet_affairs" value="Infinity Dessert Bar">
+                    <label for="sweet10">Infinity Dessert Bar</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Sips & Beverages -->
+        <section>
+            <h2>Hot Sips & Beverages (Choose 2-3)</h2>
+            <p class="instruction">Select 2 to 3 beverage options</p>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bev1" name="beverages" value="Kashmiri Chai">
+                    <label for="bev1">Kashmiri Chai</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bev2" name="beverages" value="Karak Chai">
+                    <label for="bev2">Karak Chai</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bev3" name="beverages" value="Tea without Sugar">
+                    <label for="bev3">Tea Without Sugar</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bev4" name="beverages" value="Coffee">
+                    <label for="bev4">Coffee</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bev5" name="beverages" value="Green Tea">
+                    <label for="bev5">Green Tea</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bev6" name="beverages" value="Water">
+                    <label for="bev6">Water</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="bev7" name="beverages" value="Soft Drinks">
+                    <label for="bev7">Soft Drinks</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Notes -->
+        <section>
+            <h2>Additional Requests & Special Notes</h2>
+            <div class="form-group">
+                <label>Dietary Requirements & Custom Requests</label>
+                <textarea name="notes" placeholder="Mention any dietary restrictions, allergies, special preferences, or custom menu requests..."></textarea>
+            </div>
         </section>
 
         <button type="submit">Request Bespoke Quote</button>
@@ -279,13 +1162,20 @@
     </form>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/build/index.min.js"></script>
 <script>
+    // Initialize EmailJS
+    (function(){
+        emailjs.init("YOUR_PUBLIC_KEY_HERE"); // Replace with your EmailJS Public Key
+    })();
+
     document.getElementById('menuForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         
         const button = this.querySelector('button');
         const alert = document.getElementById('alert');
         button.disabled = true;
+        const originalText = button.textContent;
         button.textContent = 'Sending...';
 
         // Collect form data
@@ -295,68 +1185,83 @@
             email: this.querySelector('input[name="email"]').value,
             event_date: this.querySelector('input[name="event_date"]').value,
             guest_count: this.querySelector('input[name="guest_count"]').value,
-            drinks: Array.from(this.querySelectorAll('input[name="drinks"]:checked')).map(el => el.value),
-            starters: Array.from(this.querySelectorAll('input[name="starters"]:checked')).map(el => el.value),
-            desi: Array.from(this.querySelectorAll('input[name="desi"]:checked')).map(el => el.value),
-            rice: this.querySelector('input[name="rice"]:checked')?.value || 'Not selected',
-            dessert: Array.from(this.querySelectorAll('input[name="dessert"]:checked')).map(el => el.value),
-            notes: this.querySelector('textarea[name="notes"]').value,
-            timestamp: new Date().toLocaleString()
+            
+            welcome_drinks: Array.from(this.querySelectorAll('input[name="welcome_drinks"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            soup_station: Array.from(this.querySelectorAll('input[name="soup_station"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            gourmet_starters: Array.from(this.querySelectorAll('input[name="gourmet_starters"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            chaat_station: Array.from(this.querySelectorAll('input[name="chaat_station"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            salad_platter: Array.from(this.querySelectorAll('input[name="salad_platter"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            hyderabadi_station: Array.from(this.querySelectorAll('input[name="hyderabadi_station"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            japanese_station: Array.from(this.querySelectorAll('input[name="japanese_station"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            lebanese_station: Array.from(this.querySelectorAll('input[name="lebanese_station"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            seafood_station: Array.from(this.querySelectorAll('input[name="seafood_station"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            desi_mains: Array.from(this.querySelectorAll('input[name="desi_mains"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            rice_station: this.querySelector('input[name="rice_station"]:checked')?.value || 'Not selected',
+            halwa_section: this.querySelector('input[name="halwa_section"]:checked')?.value || 'Not selected',
+            desi_desserts: Array.from(this.querySelectorAll('input[name="desi_desserts"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            live_tawa: Array.from(this.querySelectorAll('input[name="live_tawa"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            grill_bbq: Array.from(this.querySelectorAll('input[name="grill_bbq"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            pan_asian: Array.from(this.querySelectorAll('input[name="pan_asian"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            indosri_station: Array.from(this.querySelectorAll('input[name="indosri_station"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            italian_affairs: Array.from(this.querySelectorAll('input[name="italian_affairs"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            wood_pizza: Array.from(this.querySelectorAll('input[name="wood_pizza"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            steak_carving: Array.from(this.querySelectorAll('input[name="steak_carving"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            live_tandoor: Array.from(this.querySelectorAll('input[name="live_tandoor"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            sweet_affairs: Array.from(this.querySelectorAll('input[name="sweet_affairs"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            beverages: Array.from(this.querySelectorAll('input[name="beverages"]:checked')).map(el => el.value).join(', ') || 'Not selected',
+            notes: this.querySelector('textarea[name="notes"]').value || 'None',
+            timestamp: new Date().toLocaleString('en-PK', { timeZone: 'Asia/Karachi' })
         };
 
         try {
-            // Send to GitHub Actions webhook
-            const response = await fetch('https://api.github.com/repos/osmanmalek1185/crave-catering-menu/dispatches', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + localStorage.getItem('github_token') || 'public'
-                },
-                body: JSON.stringify({
-                    event_type: 'form_submission',
-                    client_payload: formData
-                })
+            // Send email via EmailJS
+            const response = await emailjs.send('service_crave_catering', 'template_menu_selection', {
+                to_email: 'asma@sweetaffairs.com.pk',
+                client_name: formData.name,
+                client_phone: formData.phone,
+                client_email: formData.email,
+                event_date: formData.event_date,
+                guest_count: formData.guest_count,
+                welcome_drinks: formData.welcome_drinks,
+                soup_station: formData.soup_station,
+                gourmet_starters: formData.gourmet_starters,
+                chaat_station: formData.chaat_station,
+                salad_platter: formData.salad_platter,
+                hyderabadi_station: formData.hyderabadi_station,
+                japanese_station: formData.japanese_station,
+                lebanese_station: formData.lebanese_station,
+                seafood_station: formData.seafood_station,
+                desi_mains: formData.desi_mains,
+                rice_station: formData.rice_station,
+                halwa_section: formData.halwa_section,
+                desi_desserts: formData.desi_desserts,
+                live_tawa: formData.live_tawa,
+                grill_bbq: formData.grill_bbq,
+                pan_asian: formData.pan_asian,
+                indosri_station: formData.indosri_station,
+                italian_affairs: formData.italian_affairs,
+                wood_pizza: formData.wood_pizza,
+                steak_carving: formData.steak_carving,
+                live_tandoor: formData.live_tandoor,
+                sweet_affairs: formData.sweet_affairs,
+                beverages: formData.beverages,
+                notes: formData.notes,
+                timestamp: formData.timestamp
             });
 
-            // Alternative: Send via EmailJS (no backend needed)
-            const emailResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    service_id: 'service_crave_catering',
-                    template_id: 'template_menu_inquiry',
-                    user_id: 'your_emailjs_public_key',
-                    template_params: {
-                        to_email: 'asma@sweetaffairs.com.pk',
-                        client_name: formData.name,
-                        client_phone: formData.phone,
-                        client_email: formData.email,
-                        event_date: formData.event_date,
-                        guest_count: formData.guest_count,
-                        drinks_selected: formData.drinks.join(', ') || 'None',
-                        starters_selected: formData.starters.join(', ') || 'None',
-                        desi_selected: formData.desi.join(', ') || 'None',
-                        rice_selected: formData.rice,
-                        dessert_selected: formData.dessert.join(', ') || 'None',
-                        notes: formData.notes
-                    }
-                })
-            }).catch(() => null); // Make it optional
-
             alert.className = 'alert success';
-            alert.textContent = '✅ Your inquiry has been submitted! We will contact you within 24 hours.';
+            alert.textContent = '✅ Your inquiry has been submitted successfully! We will contact you within 24 hours.';
+            window.scrollTo(0, 0);
             this.reset();
             
         } catch (error) {
             alert.className = 'alert error';
-            alert.textContent = '❌ Error submitting form. Please try again.';
-            console.error('Error:', error);
+            alert.textContent = '❌ Error submitting form. Please try again or contact us directly.';
+            console.error('EmailJS Error:', error);
+            window.scrollTo(0, 0);
         } finally {
             button.disabled = false;
-            button.textContent = 'Request Bespoke Quote';
+            button.textContent = originalText;
         }
     });
 </script>
